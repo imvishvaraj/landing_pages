@@ -27,7 +27,7 @@ SECRET_KEY = '(c82re30#ght^z49*^8jjnik_(3gjeeq4l!x&sox8nwvs-!yuu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mininews.heroku.com']
+ALLOWED_HOSTS = ['mininews.herokuapp.com']
 
 
 # Application definition
