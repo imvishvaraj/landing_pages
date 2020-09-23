@@ -27,8 +27,18 @@ SECRET_KEY = '(c82re30#ght^z49*^8jjnik_(3gjeeq4l!x&sox8nwvs-!yuu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mininews.herokuapp.com']
+ALLOWED_HOSTS = ['mininews.herokuapp.com', '0.0.0.0']
 
+#  email settings
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'youremail@gmail.com' #my gmail username
+# EMAIL_HOST_PASSWORD = 'yourpassword' #my gmail password
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = "Justin <hungrypy@gmail.com>"
+
+# ADMINS = [('Justin', EMAIL_HOST_USER)]
+# MANAGERS = ADMINS
 
 # Application definition
 
