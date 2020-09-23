@@ -1,0 +1,1 @@
+test file inside live-static/media-root
