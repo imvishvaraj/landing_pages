@@ -1,0 +1,18 @@
+<form class="join-form" method='POST' action=''>
+    {% csrf_token %}
+
+    <div class="alert alert-danger alert-dismissible fade show join-form-alert" style="display:none" role="alert"> 
+        <span class="join-form-error"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="input-group">
+        <input class='form-control' type='email' name='email' placeholder='Your email...'>
+        <div class="input-group-append">
+            <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Join" />
+        </div>
+    </div>
+
+</form>
