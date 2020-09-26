@@ -19,5 +19,6 @@ class JoinForm(forms.ModelForm):
         print(email)
         qs = Join.objects.filter(email__iexact=email)
         if qs.exists():
+            print("email exists!!")
             raise forms.ValidationError("This email already exists")
         return email
