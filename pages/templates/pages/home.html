@@ -1,58 +1,38 @@
 {% extends "base.html" %}
 
+<style>
+{% block style %}
+
+    .navbar-inverse {
+        background-color: {{ page_obj.nav_color }};
+        border-color: {{ page_obj.nav_color }};
+    }
+
+    {% if not page_obj.show_nav %}
+        body {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    {% endif %}
+
+
+{% endblock style %}
+</style>
 
 {% block content %}
 
-
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">NewStart</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
-
-<main role="main">
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-    <h1 class="display-3">{{ page_obj.title }}</h1>
-    <p>{{ page_obj.title_description|linebreaks }}</p>
-    {% if page_obj.title_btn_url %}
-        <p><a class="btn btn-primary btn-lg" href="{{ page_obj.title_btn_url }}" role="button">Learn more &raquo;</a></p>
+    {% if page_obj.show_nav %}
+        {% include 'navbar.html' %}
     {% endif %}
-    </div>
-</div>
 
-<div class="container mb-2">
-    <!-- Example row of columns -->
-    <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-    <div class="row">
-        <div class="col-4">
-            <h2>Join us</h2>
-        </div>
-        <div class="col-8">
-            <p>
-                {% include 'pages/snippet/join-form.html' with form=form %}
-            </p>
-        </div>
-    </div>
-    </div></div>
-</div>
+    <main role="main">
 
-<div class="container">
-    {{ page_obj.content|safe }}
-</div>
+    {% if page_obj.layout == 'stacked' %}
+        {% include 'pages/snippet/stacked-layout.html' with page_obj=page_obj form=form %}
+    {% else %}
+        {% include 'pages/snippet/standard-layout.html' with page_obj=page_obj form=form %}
+    {% endif %}
 
-    <hr>
-
-</main>
-
-<footer class="container">
-<p>&copy; Company 2017-2020</p>
-</footer>
+    </main>
 
 {% endblock content %}
