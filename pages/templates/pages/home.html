@@ -36,16 +36,7 @@
         </div>
         <div class="col-8">
             <p>
-                <form method='POST' action=''>
-                    {% csrf_token %}
-                    <!-- {{ form.as_p }}  -->
-                    <div class="input-group">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email">
-                        <div class="input-group-append">
-                            <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Join" />
-                        </div>
-                    </div>
-                </form>
+                {% include 'pages/snippet/join-form.html' with form=form %}
             </p>
         </div>
     </div>

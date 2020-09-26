@@ -1,0 +1,33 @@
+<form method='POST' action=''>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ form.non_field_errors }}</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% for field in form %}
+    
+        {% if field.errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ field.errors }}</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+
+        <div class="input-group">
+                {{ field }}
+            {% comment %} <input type="email" name="email" class="form-control" placeholder="Your Email"> {% endcomment %}
+            <div class="input-group-append">
+                <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Join" />
+            </div>
+        </div>
+
+    {% endfor %}
+</form>
