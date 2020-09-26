@@ -1,5 +1,12 @@
-<form method='POST' action=''>
+<form class="join-form" method='POST' action=''>
     {% csrf_token %}
+
+    <div class="alert alert-danger alert-dismissible fade show join-form-alert" style="display:none" role="alert"> 
+        <span class="join-form-error"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
     {% if form.non_field_errors %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -22,8 +29,7 @@
         {% endif %}
 
         <div class="input-group">
-                {{ field }}
-            {% comment %} <input type="email" name="email" class="form-control" placeholder="Your Email"> {% endcomment %}
+            {{ field }}
             <div class="input-group-append">
                 <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Join" />
             </div>
