@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from newsletter.api.views import JoinCreateAPIView
-from pages.views import HomeView
+from pages.views import HomeView, PageDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view()),
+    path('<slug>', PageDetailView.as_view(), name='page-detail'),
     path('api/email/join/', JoinCreateAPIView.as_view(), name='email-join'),
 
 ]

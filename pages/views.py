@@ -1,6 +1,6 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
-from django.views.generic import View, FormView, CreateView
+from django.views.generic import View, FormView, CreateView, DetailView
 
 from newsletter.forms import JoinForm
 from .models import Page
@@ -30,3 +30,9 @@ class HomeView(SuccessMessageMixin, CreateView):
     #     email = form.cleaned_data.get("email")
     #     # other things with email
     #     return super(HomeView, self).form_valid(form)
+
+
+class PageDetailView(DetailView):
+    queryset = Page.objects.filter(active=True)
+    model = Page
+
