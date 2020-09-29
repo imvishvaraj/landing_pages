@@ -31,3 +31,13 @@ class Page(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.featured:
+            # qs = Page.objects.filter(featured=True)
+            qs = Pages.objects.all().exclude(pk=self.pk)
+            if qs.exists():
+                qs.update(featured=False)
+        
+        super(Page, self).save(*args, **kwargs)
+
