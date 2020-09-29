@@ -17,7 +17,8 @@ class HomeView(SuccessMessageMixin, CreateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
-        context["page_obj"] = Page.objects.all().order_by("?").first()
+        # context["page_obj"] = Page.objects.all().order_by("?").first()
+        context["page_obj"] = Page.objects.filter(featured=True).first()
         return context
     
 
