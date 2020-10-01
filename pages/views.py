@@ -35,4 +35,5 @@ class HomeView(SuccessMessageMixin, CreateView):
 class PageDetailView(DetailView):
     queryset = Page.objects.filter(active=True)
     model = Page
+    templates_name = 'pages/home.html'
 
