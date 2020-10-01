@@ -4,11 +4,11 @@
 {% block style %}
 
     .navbar-inverse {
-        background-color: {{ page_obj.nav_color }};
-        border-color: {{ page_obj.nav_color }};
+        background-color: {{ object.nav_color }};
+        border-color: {{ object.nav_color }};
     }
 
-    {% if not page_obj.show_nav %}
+    {% if not object.show_nav %}
         body {
             padding-top: 0px;
             padding-bottom: 0px;
@@ -21,16 +21,16 @@
 
 {% block content %}
 
-    {% if page_obj.show_nav %}
+    {% if object.show_nav %}
         {% include 'navbar.html' %}
     {% endif %}
 
     <main role="main">
 
-    {% if page_obj.layout == 'stacked' %}
-        {% include 'pages/snippet/stacked-layout.html' with page_obj=page_obj form=form %}
+    {% if object.layout == 'stacked' %}
+        {% include 'pages/snippet/stacked-layout.html' with page_obj=object form=form %}
     {% else %}
-        {% include 'pages/snippet/standard-layout.html' with page_obj=page_obj form=form %}
+        {% include 'pages/snippet/standard-layout.html' with page_obj=object form=form %}
     {% endif %}
 
     </main>

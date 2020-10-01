@@ -18,7 +18,7 @@ class HomeView(SuccessMessageMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
         # context["page_obj"] = Page.objects.all().order_by("?").first()
-        context["page_obj"] = Page.objects.filter(featured=True).first()
+        context["object"] = Page.objects.filter(featured=True).first()
         return context
     
 
@@ -35,5 +35,5 @@ class HomeView(SuccessMessageMixin, CreateView):
 class PageDetailView(DetailView):
     queryset = Page.objects.filter(active=True)
     model = Page
-    templates_name = 'pages/home.html'
+    template_name = 'pages/home.html'
 

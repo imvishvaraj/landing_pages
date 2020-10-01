@@ -22,7 +22,7 @@ from pages.views import HomeView, PageDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view()),
-    path('<slug>', PageDetailView.as_view(), name='page-detail'),
+    path('<slug>/', PageDetailView.as_view(), name='page-detail'),
     path('api/email/join/', JoinCreateAPIView.as_view(), name='email-join'),
 
 ]
