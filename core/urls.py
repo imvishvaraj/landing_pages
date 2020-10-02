@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from newsletter.api.views import JoinCreateAPIView
 from pages.views import HomeView, PageDetailView
@@ -24,5 +26,4 @@ urlpatterns = [
     path('', HomeView.as_view()),
     path('<slug>/', PageDetailView.as_view(), name='page-detail'),
     path('api/email/join/', JoinCreateAPIView.as_view(), name='email-join'),
-
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
